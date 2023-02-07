@@ -16,6 +16,8 @@ import '@/icons' // icon
 import '@/permission' // permission control
 // 引入所有接口
 import API from '@/api/produce'
+import CategorySelect from '@/components/CategorySelect'
+Vue.component('CategorySelect',CategorySelect)
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

@@ -9,7 +9,7 @@
       <el-table-column type="index" label="序号" width="80px" align="center" />
       <el-table-column prop="tmName" label="品牌名称" align="center" />
       <el-table-column prop="address" label="品牌LOGO" align="center">
-        <template v-slot="{row,$index}">
+        <template v-slot="{row}">
           <img :src="row.logoUrl" style="width: 80px;height: 80px;" />
         </template>
       </el-table-column>
@@ -122,16 +122,14 @@
     methods: {
       //删除品牌
       async deleteMark(id) {
-        const result = await this.$API.tradeMark.deleteMark(id)
-        if (result.code === 200) {
-          this.$message({
-            message: '删除成功',
-            type: 'success'
-          });
-          this.getList()
-        } else {
-          this.$message.error('服务器接口错误！！');
-        }
+          const result = await this.$API.tradeMark.deleteMark(id)
+          if (result.code === 200) {
+            this.$message({
+              message: '删除成功',
+              type: 'success'
+            });
+            this.getList()
+          }
       },
       //确定上传
       uploadMark() {
